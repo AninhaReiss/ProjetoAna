@@ -1,0 +1,26 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate" activate="listarAutor"></acme-navbar>
+  </div>
+
+  <a class="pull-right" type="button" ng-href="#/salvarAutor/incluir">Novo Autor</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome do Autor</th>
+        <th>Sobrenome do Autor</th>
+        <th>Qtde. de Livros</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dados in listarAutor.listarAutor | orderBy:'firstName'">
+        <td><a ng-href="#/salvarAutor/editar/{{dados.id}}">{{::dados.firstName}}</a></td>
+        <td>{{::dados.lastName}}</td>
+        <td>{{}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

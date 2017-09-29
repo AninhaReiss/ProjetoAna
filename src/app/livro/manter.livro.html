@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate" activate="listarLivro"></acme-navbar>
+  </div>
+
+  <form >
+    <div class="form-group">
+      <label for="nome">Título do livro</label>
+      <input type="nome" ng-model="salvarLivro.salvarLivro.title" class="form-control" id="nome" placeholder="nome do Livro">
+    </div>
+
+    <div class="form-group" ng-if="salvarLivro.tipo == 'editar'">
+      <form name="myForm">
+        <label for="repeatSelect">Relacionar Autor: </label>
+        <select name="repeatSelect" id="repeatSelect" ng-model="salvarLivro.dados.authorId">
+          <option value="">---Selecione um autor---</option>
+          <option ng-repeat="option in salvarLivro.dados.lista | orderBy:'firstName'" value="{{option.id}}">
+            {{option.firstName}} {{option.lastName}}
+          </option>
+        </select>
+      </form>
+    </div>
+
+    <button type="button" class="btn btn-primary" ng-click="salvarLivro.salvar()">Salvar</button>
+    <button type="button" class="btn btn-danger" ng-if="salvarLivro.tipo == 'editar'" ng-click="salvarLivro.deletar()">Deletar</button>
+  </form>
+</div>

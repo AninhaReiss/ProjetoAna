@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div>
+    <acme-navbar creation-date="main.creationDate" activate="listarLivro"></acme-navbar>
+  </div>
+
+  <a class="pull-right" type="button" ng-href="#/salvarLivro/incluir">Novo Livro</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Título</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="dados in listarLivro.listarLivro | orderBy:'title'">
+        <td><a ng-href="#/salvarLivro/editar/{{dados.id}}">{{::dados.title}}</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <nav aria-label="...">
+      <ul class="pagination">
+        <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+        ...
+      </ul>
+    </nav>
+  </div>
+
+</div>
